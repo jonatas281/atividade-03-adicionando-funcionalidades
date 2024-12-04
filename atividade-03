@@ -1,4 +1,5 @@
-import os
+import os 
+os .system("cls || clear")
 
 # Função sem retorno.
 def logoSenai():
@@ -10,7 +11,7 @@ nomes = []
 idades = []
 alturas = []
 pesos = []
-
+imc=0
 # Solicitando os dados dos usuários em um loop
 while True:
     logoSenai()
@@ -30,13 +31,32 @@ while True:
     alturas.append(altura)
     pesos.append(peso)
 
+# calculo do imc:def
+def calculo_imc(imc):
+ imc = peso/(altura ** 2)
+if imc < 18.5:
+ print("abaixo do peso.")
+elif 18.5 <= imc < 25:
+ print(" peso normal")
+elif 25 <= imc < 30:
+ print("sobre peso")
+elif 30 <= imc < 35:
+ print("obesidade grau I")
+elif 35 <= imc < 40:
+ print("obesidade grau II")
+elif imc >= 40:
+ print("obedidade morbida")
 # Exibindo os dados armazenados
-logoSenai()
-print("\nDados dos usuários:")
+ logoSenai()
+ print("\nDados dos usuários:")
 for i in range(len(nomes)):
     print(f"Usuário {i+1}:")
     print("Nome:", nomes[i])
     print("Idade:", idades[i])
     print("Altura:", alturas[i], "metros")
     print("Peso:", pesos[i], "quilogramas")
+    imc, classificacao = calculo_imc(pesos[i], alturas[i])
+    print(f"IMC: {imc:.1f} - {classificacao}")
     print()
+
+    
